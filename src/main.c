@@ -1,13 +1,21 @@
 #include <gtk/gtk.h>
+#include <gdk/gdk.h>
+#include <string.h>
+#define DATADIR_XPM DATADIR
+
+#include "splashbox.xpm"
 
 int main( int argc, char *argv[] )
 {
 	GtkWidget *window;
 	GtkWidget *vbox;
 	GtkWidget *entry;
-	GtkStatusIcon *status_icon;
+	GtkStatusIcon *tray_icon;
+	GdkPixbuf *main_icon;
 	
 	gtk_init (&argc, &argv);
+
+	main_icon = gdk_pixbuf_new_from_xpm_data((const char**)splashbox_xpm);
 	
 	window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 	gtk_window_set_wmclass (GTK_WINDOW(window), "splashbox-bot-frontend-gtk", "splashbox-bot-frontend-gtk");
@@ -25,7 +33,9 @@ int main( int argc, char *argv[] )
 	entry = gtk_entry_new();
 	gtk_box_pack_start(GTK_BOX(vbox), entry, TRUE, TRUE, 0);
 
-	status_icon = gtk_status_icon_new_from_file ("../data/splashbox.xpm");
+	tray_icon = gtk_status_icon_new ();
+	gtk_status_icon_set_from_pixbuf(tray_icon, main_icon);
+
 
 	
 	gtk_widget_hide_all  (window);
