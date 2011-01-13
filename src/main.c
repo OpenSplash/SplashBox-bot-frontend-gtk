@@ -4,11 +4,11 @@
 #include <dbus/dbus.h>
 #include <dbus/dbus-glib.h>
 #include <stdlib.h>
+#include "main.h"
 #include "xgrabkey.h"
 #include "debug.h"
 
 #include "splashbox.xpm"
-
 DBusGConnection *connection;
 DBusGProxy *proxy;
 GError *error = NULL;
@@ -78,7 +78,7 @@ int main( int argc, char *argv[] )
 	window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 	gtk_window_set_wmclass (GTK_WINDOW(window), "splashbox-bot-frontend-gtk", "splashbox-bot-frontend-gtk");
 	//gtk_window_set_modal(GTK_WINDOW(window), TRUE);
-	gtk_widget_set_size_request( window, 300, -1);
+	gtk_widget_set_size_request( window, 400, -1);
 	gtk_window_set_has_frame(GTK_WINDOW(window), FALSE);
 	gtk_window_set_resizable (GTK_WINDOW(window), FALSE);
 	gtk_window_set_position  (GTK_WINDOW(window),GTK_WIN_POS_CENTER_ALWAYS);
@@ -101,6 +101,7 @@ int main( int argc, char *argv[] )
 
 	tray_icon = gtk_status_icon_new ();
 	gtk_status_icon_set_from_pixbuf(tray_icon, main_icon);
+	gtk_status_icon_set_tooltip(tray_icon, "Use right Alt key to show/hide the input box.");
 
 	/*
 	array_widget[0] = window;
