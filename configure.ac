@@ -22,6 +22,16 @@ AM_PATH_GTK_2_0([2.4.0], [
 	GUI_LIBS="$GUI_LIBS $GTK_LIBS"
 	], [AC_MSG_ERROR([Cannot find GTK+/X11 2.4 (or above version)!])])
 
+PKG_CHECK_MODULES(DBUS,
+	dbus-1
+	dbus-glib-1)
+
+AC_SUBST(DBUS_CFLAGS)
+AC_SUBST(DBUS_LIBS)
+
+
+
+
 # Checks for header files.
 
 # Checks for typedefs, structures, and compiler characteristics.
@@ -29,5 +39,5 @@ AM_PATH_GTK_2_0([2.4.0], [
 # Checks for library functions.
 
 AC_SUBST(GUI_LIBS)
-AC_CONFIG_FILES([Makefile src/Makefile])
+AC_CONFIG_FILES([Makefile src/Makefile splashbox-bot-frontend-gtk.desktop])
 AC_OUTPUT

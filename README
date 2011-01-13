@@ -1,2 +1,3 @@
 A gtk+ frontend of SplashBox-bot.
-Not ready, do not clone me.
+
+Please have splashbox-daemon (in SplashBox-bot package) running in background before running this gtk frontend.

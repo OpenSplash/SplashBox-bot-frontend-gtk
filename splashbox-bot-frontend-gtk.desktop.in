@@ -1,0 +1,13 @@
+[Desktop Entry]
+Categories=Application;Utility;
+Encoding=UTF-8
+Name=SplashBox-Bot Gtk+ Frontend
+Name[zh_TW]=SplashBox Gtk+ 前端
+Exec=splashbox-bot-gtk-frontend
+#Icon=@prefix@/share/pixmaps/somepic.png
+Type=Application
+Terminal=false
+GenericName=SplashBox-Bot Gtk+ Frontend
+GenericName[zh_TW]=SplashBox Gtk+ 前端
+Comment=SplashBox-Bot Gtk+ Frontend of the OpenSplash Project
+Comment[zh_TW]=SplashBox Gtk+ 前端 (OpenSplash Project)
