@@ -43,6 +43,24 @@ static void entry_activated_cb(GtkEntry *entry, gpointer user_data)
 	gtk_entry_set_text(entry, "");
 }
 
+static void tray_icon_activated_cb(GtkStatusIcon *tray_icon, gpointer user_data)
+{
+	GtkWidget *window = GTK_WIDGET(user_data);
+
+	if (window)
+	{
+		if (GTK_WIDGET_VISIBLE(window))
+		{
+			gtk_widget_hide(window);
+		}
+		else
+		{
+			gtk_widget_show(window);
+		}
+	}
+
+}
+
 int main( int argc, char *argv[] )
 {
 	GtkWidget *window = NULL;
@@ -108,6 +126,7 @@ int main( int argc, char *argv[] )
 	array_widget[1] = label;
 	*/
 	g_signal_connect(G_OBJECT(entry), "activate", G_CALLBACK (entry_activated_cb), label);
+	g_signal_connect(G_OBJECT(tray_icon), "activate", G_CALLBACK(tray_icon_activated_cb), window);
 
 
 	

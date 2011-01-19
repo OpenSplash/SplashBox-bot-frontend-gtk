@@ -22,8 +22,7 @@ void x_grab_key_init()
 gboolean grab_key(gpointer user_data)
 {
 	GtkWidget *window = GTK_WIDGET(user_data);
-
-	while(XCheckTypedEvent(x_disp, KeyRelease, &event));
+	XCheckTypedEvent(x_disp, KeyRelease, &event);
 	switch(event.type)
 	{
 		case KeyRelease:
